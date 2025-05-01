@@ -5,7 +5,7 @@
  * @source https://github.com/yilmazcabuk/discord-icons
  * @version v0.3.10
  */
-@import url("https://yilmazcabuk.github.io/discord-icons/main.css");
+@import url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/refs/heads/master/main.css");
 :root {
   --si-size: 24px; /* <length> (Default: 24px) Set the size of the icons. */
   --si-height: 32px; /* <length> (Default: 32px) Set the height for sidebar items. If the --si-size is greater than this value, --si-size takes priority. */
