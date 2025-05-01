@@ -1,0 +1,666 @@
+/* discord-icons v0.3.10 */
+/* PROPERTIES */
+:root {
+  container: root;
+}
+
+@property --si-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 24px;
+}
+@property --si-height {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 32px;
+}
+@property --si-gap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 10px;
+}
+@property --si-animations {
+  syntax: "true | false";
+  inherits: true;
+  initial-value: true;
+}
+@property --si-expand {
+  syntax: "true | false";
+  inherits: true;
+  initial-value: false;
+}
+@property --si-permanentcolor {
+  syntax: "true | false";
+  inherits: true;
+  initial-value: false;
+}
+@property --si-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: currentColor;
+}
+@property --si-opacity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.4;
+}
+@property --si-opacity-hover {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.8;
+}
+@property --si-Default {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Indeterminate_Question_Box.svg);
+}
+@property --si-accessibility {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Accessibility_New.svg);
+}
+@property --si-activity-privacy {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Privacy.svg);
+}
+@property --si-advanced {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Tune.svg);
+}
+@property --si-appearance {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Brush.svg);
+}
+@property --si-authorized-apps {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/App_Registration.svg);
+}
+@property --si-billing {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Receipt_Long.svg);
+}
+@property --si-changelog {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Update.svg);
+}
+@property --si-connections {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Link.svg);
+}
+@property --si-contentsocial {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Groups.svg);
+}
+@property --si-dataprivacy {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Security.svg);
+}
+@property --si-design-system {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-developer-options {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-discord-nitro {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Nitro.svg);
+}
+@property --si-dismissible-content-options {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-experiments {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Experiment.svg);
+}
+@property --si-family-center {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Supervisor_Account.svg);
+}
+@property --si-game-activity {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Gamepad.svg);
+}
+@property --si-hotspot-options {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-hypesquad-online {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/HypeSquad.svg);
+}
+@property --si-intl-testing {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-keybinds {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Keyboard.svg);
+}
+@property --si-language {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Translate.svg);
+}
+@property --si-library-inventory {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Redeem.svg);
+}
+@property --si-linux {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Logo-Tux.svg);
+}
+@property --si-logout {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Logout.svg);
+}
+@property --si-merchandise {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Shirt.svg);
+}
+@property --si-my-account {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Manage_Accounts.svg);
+}
+@property --si-nameplates-preview-tool {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-nitro-server-boost {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Server_Boost.svg);
+}
+@property --si-notifications {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Notifications_Active.svg);
+}
+@property --si-overlay {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Overlay.svg);
+}
+@property --si-payment-flow-modals {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-powermode-settings {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Party.svg);
+}
+@property --si-profile-customization {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Style.svg);
+}
+@property --si-profile-effects-preview-tool {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-revenue-storybook {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-settings-clips {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Theaters.svg);
+}
+@property --si-streamer-mode {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Videocam.svg);
+}
+@property --si-subscriptions {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Fact_Check.svg);
+}
+@property --si-textimages {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Chat.svg);
+}
+@property --si-text-component {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-text-playground {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-vencordcloud {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Cloud.svg);
+}
+@property --si-vencordplugins {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Extention.svg);
+}
+@property --si-vencordsettings {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/jdecked/twemoji/main/assets/svg/1f431.svg);
+}
+@property --si-vencordsettingssync {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Backup.svg);
+}
+@property --si-vencordthemes {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Format_Paint.svg);
+}
+@property --si-vencordupdater {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/System_Update_Alt.svg);
+}
+@property --si-vesktop {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Vencord.svg);
+}
+@property --si-virtual-currency-configuration {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-voicevideo {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Perm_Camera_Mic.svg);
+}
+@property --si-web-setting-tree-tool {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg);
+}
+@property --si-windows {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Logo-Windows.svg);
+}
+@property --si-analytics {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Insights.svg);
+}
+@property --si-app_directory {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Apps.svg);
+}
+@property --si-audit_log {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Audit_Log.svg);
+}
+@property --si-bans {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Gavel.svg);
+}
+@property --si-community {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Info.svg);
+}
+@property --si-community_welcome {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Explore.svg);
+}
+@property --si-delete {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Delete.svg);
+}
+@property --si-discovery {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Explore.svg);
+}
+@property --si-emoji {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Emoji.svg);
+}
+@property --si-guild_automod {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/AutoMod.svg);
+}
+@property --si-guild_premium {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Server_Boost.svg);
+}
+@property --si-guild_templates {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Library_Books.svg);
+}
+@property --si-instant_invites {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Send.svg);
+}
+@property --si-integrations {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Mediation.svg);
+}
+@property --si-members {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Group.svg);
+}
+@property --si-moderation {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Safety_Setup.svg);
+}
+@property --si-onboarding {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Group_Add.svg);
+}
+@property --si-overview {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Info.svg);
+}
+@property --si-partner {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Partner.svg);
+}
+@property --si-role_subscriptions {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Fact_Check.svg);
+}
+@property --si-roles {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Badge.svg);
+}
+@property --si-safety {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Safety_Setup.svg);
+}
+@property --si-soundboard {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Soundboard.svg);
+}
+@property --si-stickers {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Stickers.svg);
+}
+@property --si-vanity_url {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Share.svg);
+}
+@property --si-widget {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Widgets.svg);
+}
+@property --si-permissions {
+  syntax: "<url>";
+  inherits: true;
+  initial-value: url(https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Permissions.svg);
+}
+:root {
+  --si-activityprivacy: var(
+    --si-activity-privacy
+  );
+  --si-authorizedapps: var(
+    --si-authorized-apps
+  );
+  --si-contentsocial: var(
+    --si-content-social
+  );
+  --si-dataprivacy: var(
+    --si-data-privacy
+  );
+  --si-designsystem: var(
+    --si-design-system
+  );
+  --si-developeroptions: var(
+    --si-developer-options
+  );
+  --si-discordnitro: var(
+    --si-discord-nitro
+  );
+  --si-dismissiblecontentoptions: var(
+    --si-dismissible-content-options
+  );
+  --si-familycenter: var(
+    --si-family-center
+  );
+  --si-gameactivity: var(
+    --si-game-activity
+  );
+  --si-hotspotoptions: var(
+    --si-hotspot-options
+  );
+  --si-hypesquadonline: var(
+    --si-hypesquad-online
+  );
+  --si-intltesting: var(
+    --si-intl-testing
+  );
+  --si-libraryinventory: var(
+    --si-library-inventory
+  );
+  --si-myaccount: var(
+    --si-my-account
+  );
+  --si-nameplatespreviewtool: var(
+    --si-nameplates-preview-tool
+  );
+  --si-nitroserverboost: var(
+    --si-nitro-server-boost
+  );
+  --si-paymentflowmodals: var(
+    --si-payment-flow-modals
+  );
+  --si-powermodesettings: var(
+    --si-powermode-settings
+  );
+  --si-profilecustomization: var(
+    --si-profile-customization
+  );
+  --si-profileeffectspreviewtool: var(
+    --si-profile-effects-preview-tool
+  );
+  --si-revenuestorybook: var(
+    --si-revenue-storybook
+  );
+  --si-settingsclips: var(
+    --si-settings-clips
+  );
+  --si-streamermode: var(
+    --si-streamer-mode
+  );
+  --si-textimages: var(
+    --si-text-images
+  );
+  --si-textcomponent: var(
+    --si-text-component
+  );
+  --si-textplayground: var(
+    --si-text-playground
+  );
+  --si-virtualcurrencyconfiguration: var(
+    --si-virtual-currency-configuration
+  );
+  --si-voicevideo: var(
+    --si-voice-video
+  );
+  --si-websettingtreetool: var(
+    --si-web-setting-tree-tool
+  );
+  --si-appdirectory: var(
+    --si-app_directory
+  );
+  --si-auditlog: var(
+    --si-audit_log
+  );
+  --si-communitywelcome: var(
+    --si-community_welcome
+  );
+  --si-guildautomod: var(
+    --si-guild_automod
+  );
+  --si-guildpremium: var(
+    --si-guild_premium
+  );
+  --si-guildtemplates: var(
+    --si-guild_templates
+  );
+  --si-instantinvites: var(
+    --si-instant_invites
+  );
+  --si-rolesubscriptions: var(
+    --si-role_subscriptions
+  );
+  --si-vanityurl: var(
+    --si-vanity_url
+  );
+}
+
+:root {
+  --si-color-accessibility: var(--si-color);
+  --si-color-activity-privacy: var(--si-color);
+  --si-color-advanced: var(--si-color);
+  --si-color-appearance: var(--si-color);
+  --si-color-authorized-apps: var(--si-color);
+  --si-color-billing: var(--si-color);
+  --si-color-changelog: var(--si-color);
+  --si-color-connections: var(--si-color);
+  --si-color-content-social: var(--si-color);
+  --si-color-data-privacy: var(--si-color);
+  --si-color-design-system: var(--si-color);
+  --si-color-developer-options: var(--si-color);
+  --si-color-discord-nitro: var(--brand-500);
+  --si-color-dismissible-content-options: var(--si-color);
+  --si-color-experiments: var(--si-color);
+  --si-color-family-center: var(--si-color);
+  --si-color-game-activity: var(--si-color);
+  --si-color-hotspot-options: var(--si-color);
+  --si-color-hypesquad-online: var(--si-color);
+  --si-color-intl-testing: var(--si-color);
+  --si-color-keybinds: var(--si-color);
+  --si-color-language: var(--si-color);
+  --si-color-library-inventory: var(--si-color);
+  --si-color-linux: var(--si-color);
+  --si-color-logout: var(--si-color);
+  --si-color-merchandise: var(--si-color);
+  --si-color-my-account: var(--si-color);
+  --si-color-nameplates-preview-tool: var(--si-color);
+  --si-color-nitro-server-boost: var(--guild-boosting-pink);
+  --si-color-notifications: var(--si-color);
+  --si-color-overlay: var(--si-color);
+  --si-color-payment-flow-modals: var(--si-color);
+  --si-color-powermode-settings: var(--si-color);
+  --si-color-profile-customization: var(--si-color);
+  --si-color-profile-effects-preview-tool: var(--si-color);
+  --si-color-revenue-storybook: var(--si-color);
+  --si-color-settings-clips: var(--si-color);
+  --si-color-streamer-mode: var(--si-color);
+  --si-color-subscriptions: var(--si-color);
+  --si-color-text-images: var(--si-color);
+  --si-color-text-component: var(--si-color);
+  --si-color-text-playground: var(--si-color);
+  --si-color-vencordcloud: var(--si-color);
+  --si-color-vencordplugins: var(--si-color);
+  --si-color-vencordsettings: var(--si-color);
+  --si-color-vencordsettingssync: var(--si-color);
+  --si-color-vencordthemes: var(--si-color);
+  --si-color-vencordupdater: var(--si-color);
+  --si-color-vesktop: var(--si-color);
+  --si-color-virtual-currency-configuration: var(--si-color);
+  --si-color-voice-video: var(--si-color);
+  --si-color-web-setting-tree-tool: var(--si-color);
+  --si-color-windows: var(--si-color);
+  --si-color-analytics: var(--si-color);
+  --si-color-app_directory: var(--si-color);
+  --si-color-audit_log: var(--si-color);
+  --si-color-bans: var(--si-color);
+  --si-color-community: var(--si-color);
+  --si-color-community_welcome: var(--si-color);
+  --si-color-delete: var(--si-color);
+  --si-color-discovery: var(--si-color);
+  --si-color-emoji: var(--si-color);
+  --si-color-guild_automod: var(--si-color);
+  --si-color-guild_premium: var(--guild-boosting-pink);
+  --si-color-guild_templates: var(--si-color);
+  --si-color-instant_invites: var(--si-color);
+  --si-color-integrations: var(--si-color);
+  --si-color-members: var(--si-color);
+  --si-color-moderation: var(--si-color);
+  --si-color-onboarding: var(--si-color);
+  --si-color-overview: var(--si-color);
+  --si-color-partner: var(--si-color);
+  --si-color-role_subscriptions: var(--si-color);
+  --si-color-roles: var(--si-color);
+  --si-color-safety: var(--si-color);
+  --si-color-soundboard: var(--si-color);
+  --si-color-stickers: var(--si-color);
+  --si-color-vanity_url: var(--si-color);
+  --si-color-widget: var(--si-color);
+  --si-color-permissions: var(--si-color);
+}
+
+/* SETTINGS SIDEBAR */
+@container root style(--si-animations: true) {}
+@container root style(--si-permacolor: true) {}
+@container root style(--si-expand: true) {}
+/* SETTINGS SIDEBAR ICONS */
+
+/*# sourceMappingURL=main.css.map */
