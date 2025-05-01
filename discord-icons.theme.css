@@ -6,106 +6,101 @@
  * @version v0.3.10
  */
 @import url("https://yilmazcabuk.github.io/discord-icons/main.css");
-
 :root {
-  /* Base URL for icons */
-  --si-icon-base-url: "https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/";
-  
-  /* Core Settings */
-  --si-size: 24px;
-  --si-height: 32px;
-  --si-animations: true;
-  --si-expand: false;
-  --si-presets: true;
-  --si-permacolor: false;
-  --si-color: currentColor;
+  --si-size: 24px; /* <length> (Default: 24px) Set the size of the icons. */
+  --si-height: 32px; /* <length> (Default: 32px) Set the height for sidebar items. If the --si-size is greater than this value, --si-size takes priority. */
+  --si-animations: true; /* <true/false> (Default: true) Makes the sidebars have hover animations. */
+  --si-expand: false; /* <true/false> (Default: false) Expands the sidebar when hovering over items, mainly for being able to see any words that got cut off from icons. May break some themes. */
+  --si-presets: true; /* <true/false> (Default: false) Some icons have have been setup to change color on their selection/hover by default, set this to true to disable that functionality. */
+  --si-permacolor: false; /* <true/false> (Default: false) Makes icons always display their custom color. */
+  --si-color: currentColor; /* <color> (Default: currentColor) Set's the color for ALL icons. Can be fine tuned with selectors. */
   --si-opacity: 0.4;
   --si-opacity-hover: 0.8;
 
-  /* Icon Definitions */
-  --si-my-account: url(var(--si-icon-base-url)"Manage_Accounts.svg");
-  --si-profile-customization: url(var(--si-icon-base-url)"Style.svg");
-  --si-content-social: url(var(--si-icon-base-url)"Groups.svg");
-  --si-data-privacy: url(var(--si-icon-base-url)"Security.svg");
-  --si-family-center: url(var(--si-icon-base-url)"Supervisor_Account.svg");
-  --si-authorized-apps: url(var(--si-icon-base-url)"App_Registration.svg");
-  --si-sessions: url(var(--si-icon-base-url)"Devices.svg");
-  --si-connections: url(var(--si-icon-base-url)"Link.svg");
-  --si-settings-clips: url(var(--si-icon-base-url)"Theaters.svg");
-  --si-discord-nitro: url(var(--si-icon-base-url)"Discord/Nitro.svg");
-  --si-nitro-server-boost: url(var(--si-icon-base-url)"Discord/Server_Boost.svg");
-  --si-subscriptions: url(var(--si-icon-base-url)"Fact_Check.svg");
-  --si-library-inventory: url(var(--si-icon-base-url)"Redeem.svg");
-  --si-billing: url(var(--si-icon-base-url)"Receipt_Long.svg");
-  --si-appearance: url(var(--si-icon-base-url)"Brush.svg");
-  --si-accessibility: url(var(--si-icon-base-url)"Accessibility_New.svg");
-  --si-voice-video: url(var(--si-icon-base-url)"Perm_Camera_Mic.svg");
-  --si-powermode-settings: url(var(--si-icon-base-url)"Discord/Party.svg");
-  --si-text-images: url(var(--si-icon-base-url)"Chat.svg");
-  --si-notifications: url(var(--si-icon-base-url)"Notifications_Active.svg");
-  --si-keybinds: url(var(--si-icon-base-url)"Keyboard.svg");
-  --si-language: url(var(--si-icon-base-url)"Translate.svg");
-  --si-windows: url(var(--si-icon-base-url)"Logo-Windows.svg");
-  --si-linux: url(var(--si-icon-base-url)"Logo-Tux.svg");
-  --si-streamer-mode: url(var(--si-icon-base-url)"Videocam.svg");
-  --si-advanced: url(var(--si-icon-base-url)"Tune.svg");
+  /* icons */
+  --si-my-account: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Manage_Accounts.svg");
+  --si-profile-customization: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Style.svg");
+  --si-content-social: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Groups.svg");
+  --si-data-privacy: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Security.svg");
+  --si-family-center: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Supervisor_Account.svg");
+  --si-authorized-apps: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/App_Registration.svg");
+  --si-sessions: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Devices.svg");
+  --si-connections: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Link.svg");
+  --si-settings-clips: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Theaters.svg");
+  --si-discord-nitro: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Nitro.svg");
+  --si-nitro-server-boost: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Server_Boost.svg");
+  --si-subscriptions: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Fact_Check.svg");
+  --si-library-inventory: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Redeem.svg");
+  --si-billing: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Receipt_Long.svg");
+  --si-appearance: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Brush.svg");
+  --si-accessibility: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Accessibility_New.svg");
+  --si-voice-video: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Perm_Camera_Mic.svg");
+  --si-powermode-settings: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Party.svg");
+  --si-text-images: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Chat.svg");
+  --si-notifications: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Notifications_Active.svg");
+  --si-keybinds: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Keyboard.svg");
+  --si-language: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Translate.svg");
+  --si-windows: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Logo-Windows.svg");
+  --si-linux: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Logo-Tux.svg");
+  --si-streamer-mode: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Videocam.svg");
+  --si-advanced: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Tune.svg");
   --si-vencordsettings: url("https://raw.githubusercontent.com/jdecked/twemoji/main/assets/svg/1f431.svg");
-  --si-vencordplugins: url(var(--si-icon-base-url)"Extention.svg");
-  --si-vencordthemes: url(var(--si-icon-base-url)"Format_Paint.svg");
-  --si-vencordupdater: url(var(--si-icon-base-url)"System_Update_Alt.svg");
-  --si-vencordcloud: url(var(--si-icon-base-url)"Cloud.svg");
-  --si-vencordsettingssync: url(var(--si-icon-base-url)"Backup.svg");
-  --si-vesktop: url(var(--si-icon-base-url)"Vencord.svg");
-  --si-activity-privacy: url(var(--si-icon-base-url)"Privacy.svg");
-  --si-game-activity: url(var(--si-icon-base-url)"Gamepad.svg");
-  --si-overlay: url(var(--si-icon-base-url)"Overlay.svg");
-  --si-changelog: url(var(--si-icon-base-url)"Update.svg");
-  --si-merchandise: url(var(--si-icon-base-url)"Shirt.svg");
-  --si-hypesquad-online: url(var(--si-icon-base-url)"Discord/HypeSquad.svg");
-  --si-experiments: url(var(--si-icon-base-url)"Experiment.svg");
-  --si-developer-options: url(var(--si-icon-base-url)"Memory.svg");
-  --si-hotspot-options: url(var(--si-icon-base-url)"Memory.svg");
-  --si-dismissible-content-options: url(var(--si-icon-base-url)"Memory.svg");
-  --si-payment-flow-modals: url(var(--si-icon-base-url)"Memory.svg");
-  --si-revenue-storybook: url(var(--si-icon-base-url)"Memory.svg");
-  --si-virtual-currency-configuration: url(var(--si-icon-base-url)"Memory.svg");
-  --si-design-system: url(var(--si-icon-base-url)"Memory.svg");
-  --si-text-playground: url(var(--si-icon-base-url)"Memory.svg");
-  --si-text-component: url(var(--si-icon-base-url)"Memory.svg");
-  --si-intl-testing: url(var(--si-icon-base-url)"Memory.svg");
-  --si-profile-effects-preview-tool: url(var(--si-icon-base-url)"Memory.svg");
-  --si-nameplates-preview-tool: url(var(--si-icon-base-url)"Memory.svg");
-  --si-web-setting-tree-tool: url(var(--si-icon-base-url)"Memory.svg");
-  --si-logout: url(var(--si-icon-base-url)"Logout.svg");
-  --si-overview: url(var(--si-icon-base-url)"Info.svg");
-  --si-roles: url(var(--si-icon-base-url)"Badge.svg");
-  --si-emoji: url(var(--si-icon-base-url)"Emoji.svg");
-  --si-stickers: url(var(--si-icon-base-url)"Stickers.svg");
-  --si-soundboard: url(var(--si-icon-base-url)"Soundboard.svg");
-  --si-widget: url(var(--si-icon-base-url)"Widgets.svg");
-  --si-guild_templates: url(var(--si-icon-base-url)"Library_Books.svg");
-  --si-vanity_url: url(var(--si-icon-base-url)"Share.svg");
-  --si-integrations: url(var(--si-icon-base-url)"Mediation.svg");
-  --si-app_directory: url(var(--si-icon-base-url)"Apps.svg");
-  --si-moderation: url(var(--si-icon-base-url)"Safety_Setup.svg");
-  --si-safety: url(var(--si-icon-base-url)"Safety_Setup.svg");
-  --si-guild_automod: url(var(--si-icon-base-url)"AutoMod.svg");
-  --si-audit_log: url(var(--si-icon-base-url)"Audit_Log.svg");
-  --si-bans: url(var(--si-icon-base-url)"Gavel.svg");
-  --si-community: url(var(--si-icon-base-url)"Info.svg");
-  --si-onboarding: url(var(--si-icon-base-url)"Group_Add.svg");
-  --si-analytics: url(var(--si-icon-base-url)"Insights.svg");
-  --si-partner: url(var(--si-icon-base-url)"Discord/Partner.svg");
-  --si-discovery: url(var(--si-icon-base-url)"Explore.svg");
-  --si-community_welcome: url(var(--si-icon-base-url)"Explore.svg");
-  --si-guild_premium: url(var(--si-icon-base-url)"Discord/Server_Boost.svg");
-  --si-role_subscriptions: url(var(--si-icon-base-url)"Fact_Check.svg");
-  --si-members: url(var(--si-icon-base-url)"Group.svg");
-  --si-instant_invites: url(var(--si-icon-base-url)"Send.svg");
-  --si-delete: url(var(--si-icon-base-url)"Delete.svg");
-  --si-permissions: url(var(--si-icon-base-url)"Permissions.svg");
+  --si-vencordplugins: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Extention.svg");
+  --si-vencordthemes: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Format_Paint.svg");
+  --si-vencordupdater: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/System_Update_Alt.svg");
+  --si-vencordcloud: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Cloud.svg");
+  --si-vencordsettingssync: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Backup.svg");
+  --si-vesktop: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Vencord.svg");
+  --si-activity-privacy: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Privacy.svg");
+  --si-game-activity: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Gamepad.svg");
+  --si-overlay: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Overlay.svg");
+  --si-changelog: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Update.svg");
+  --si-merchandise: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Shirt.svg");
+  --si-hypesquad-online: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/HypeSquad.svg");
+  --si-experiments: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Experiment.svg");
+  --si-developer-options: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-hotspot-options: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-dismissible-content-options: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-payment-flow-modals: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-revenue-storybook: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-virtual-currency-configuration: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-design-system: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-text-playground: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-text-component: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-intl-testing: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-profile-effects-preview-tool: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-nameplates-preview-tool: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-web-setting-tree-tool: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Memory.svg");
+  --si-logout: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Logout.svg");
+  --si-overview: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Info.svg");
+  --si-roles: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Badge.svg");
+  --si-emoji: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Emoji.svg");
+  --si-stickers: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Stickers.svg");
+  --si-soundboard: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Soundboard.svg");
+  --si-widget: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Widgets.svg");
+  --si-guild_templates: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Library_Books.svg");
+  --si-vanity_url: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Share.svg");
+  --si-integrations: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Mediation.svg");
+  --si-app_directory: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Apps.svg");
+  --si-moderation: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Safety_Setup.svg");
+  --si-safety: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Safety_Setup.svg");
+  --si-guild_automod: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/AutoMod.svg");
+  --si-audit_log: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Audit_Log.svg");
+  --si-bans: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Gavel.svg");
+  --si-community: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Info.svg");
+  --si-onboarding: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Group_Add.svg");
+  --si-analytics: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Insights.svg");
+  --si-partner: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Partner.svg");
+  --si-discovery: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Explore.svg");
+  --si-community_welcome: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Explore.svg");
+  --si-guild_premium: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Discord/Server_Boost.svg");
+  --si-role_subscriptions: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Fact_Check.svg");
+  --si-members: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Group.svg");
+  --si-instant_invites: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Send.svg");
+  --si-delete: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Delete.svg");
+  --si-permissions: url("https://raw.githubusercontent.com/yilmazcabuk/discord-icons/master/Icons/SVG/Permissions.svg");
 
-  /* Color Definitions */
+  /* colors */
   --si-color-my-account: var(--si-color);
   --si-color-profile-customization: var(--si-color);
   --si-color-content-social: var(--si-color);
