@@ -1,23 +1,23 @@
 @use 'src/_version';
-/* DiscordIcons v#{version.$v} */
+/* discord-icons v#{version.$v} */
 
 // VARIABLES
-@import 'src/_variables.scss';
+@use 'src/_variables.scss';
 
 // SELECTORS
-@import 'lib/selectors/selectorPlaceholders.scss';
+@use 'lib/selectors/selectorPlaceholders.scss';
 
 // FUCNTIONS
-@import 'src/functions.scss';
+@use 'src/functions.scss';
 
 // PRESETS
-@import 'src/presets.scss';
+@use 'src/presets.scss';
 
 // PROPERTIES
-@import 'src/properties.scss';
+@use 'src/properties.scss';
 
 // SIDEBAR
-@import 'src/sidebar.scss';
+@use 'src/sidebar.scss';
 
 // ICONS
-@import 'src/icons.scss';
+@use 'src/icons.scss';

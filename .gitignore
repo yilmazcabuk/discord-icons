@@ -12,3 +12,5 @@ local/
 scripts/
 lib/selectors/*.diff
 addons/
+main.css
+main.css.map

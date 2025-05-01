@@ -1,3 +1,6 @@
+@use "functions";
+@use "variables";
+
 @use 'sass:map';
 /* SETTINGS SIDEBAR ICONS */
 
@@ -36,31 +39,31 @@
   }
 
   // USER SETTINGS
-  @each $i, $u in $userSettingsIcons {
-    %tabBarItem[data-tab-id=#{str-replace("\'" + $i + "\'", '-', ' ')} i] {
-      --si-color: var(--si-color-#{str-replace($i, '-&', '')});
+  @each $i, $u in variables.$userSettingsIcons {
+    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", '-', ' ')} i] {
+      --si-color: var(--si-color-#{functions.str-replace($i, '-&', '')});
       &:before {
-        mask: var(--si-#{str-replace($i, '-&', '')}) center/contain no-repeat;
+        mask: var(--si-#{functions.str-replace($i, '-&', '')}) center/contain no-repeat;
       }
     }
   }
 
   // SERVER SETTINGS
-  @each $i, $u in $serverSettingsIcons {
-    %tabBarItem[data-tab-id=#{str-replace("\'" + $i + "\'", '-', ' ')} i] {
-      --si-color: var(--si-color-#{str-replace($i, '-&', '')});
+  @each $i, $u in variables.$serverSettingsIcons {
+    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", '-', ' ')} i] {
+      --si-color: var(--si-color-#{functions.str-replace($i, '-&', '')});
       &:before {
-        mask: var(--si-#{str-replace($i, '-&', '')}) center/contain no-repeat;
+        mask: var(--si-#{functions.str-replace($i, '-&', '')}) center/contain no-repeat;
       }
     }
   }
 
   // CHANNEL SETTINGS
-  @each $i, $u in $channelSettingsIcons {
-    %tabBarItem[data-tab-id=#{str-replace("\'" + $i + "\'", '-', ' ')} i] {
-      --si-color: var(--si-color-#{str-replace($i, '-&', '')});
+  @each $i, $u in variables.$channelSettingsIcons {
+    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", '-', ' ')} i] {
+      --si-color: var(--si-color-#{functions.str-replace($i, '-&', '')});
       &:before {
-        mask: var(--si-#{str-replace($i, '-&', '')}) center/contain no-repeat;
+        mask: var(--si-#{functions.str-replace($i, '-&', '')}) center/contain no-repeat;
       }
     }
   }

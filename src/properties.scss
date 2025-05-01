@@ -1,80 +1,85 @@
+@use "sass:string";
+@use "functions";
+@use "presets";
+@use "variables";
+
 /* PROPERTIES */
 :root {
-    container: root;
+  container: root;
 }
 
 @property --si-size {
-	syntax: "<length>";
-	inherits: true;
-	initial-value: 24px;
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 24px;
 }
 @property --si-height {
-	syntax: "<length>";
-	inherits: true;
-	initial-value: 32px;
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 32px;
 }
 @property --si-gap {
-	syntax: "<length>";
-	inherits: true;
-	initial-value: 10px;
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 10px;
 }
 @property --si-animations {
-	syntax: "true | false";
-	inherits: true;
-	initial-value: true;
+  syntax: "true | false";
+  inherits: true;
+  initial-value: true;
 }
 @property --si-expand {
-	syntax: "true | false";
-	inherits: true;
-	initial-value: false;
+  syntax: "true | false";
+  inherits: true;
+  initial-value: false;
 }
 @property --si-permacolor {
-	syntax: "true | false";
-	inherits: true;
-	initial-value: false;
+  syntax: "true | false";
+  inherits: true;
+  initial-value: false;
 }
 @property --si-color {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: currentColor;
+  syntax: "<color>";
+  inherits: true;
+  initial-value: currentColor;
 }
 @property --si-opacity {
-	syntax: "<number>";
-	inherits: true;
-	initial-value: 0.4;
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.4;
 }
 @property --si-opacity-hover {
-	syntax: "<number>";
-	inherits: true;
-	initial-value: 0.8;
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.8;
 }
 
-@each $i, $u in $miscSettingsIcons {
-  @property --si-#{str-replace($i, '-&-', '')} {
+@each $i, $u in variables.$miscSettingsIcons {
+  @property --si-#{functions.str-replace($i, '-&-', '')} {
     syntax: "<url>";
     inherits: true;
     initial-value: url(#{$u});
   }
 }
 
-@each $i, $u in $userSettingsIcons {
-  @property --si-#{str-replace($i, '-&', '')} {
+@each $i, $u in variables.$userSettingsIcons {
+  @property --si-#{functions.str-replace($i, '-&', '')} {
     syntax: "<url>";
     inherits: true;
     initial-value: url(#{$u});
   }
 }
 
-@each $i, $u in $serverSettingsIcons {
-  @property --si-#{str-replace($i, '-&', '')} {
+@each $i, $u in variables.$serverSettingsIcons {
+  @property --si-#{functions.str-replace($i, '-&', '')} {
     syntax: "<url>";
     inherits: true;
     initial-value: url(#{$u});
   }
 }
 
-@each $i, $u in $channelSettingsIcons {
-  @property --si-#{str-replace($i, '-&', '')} {
+@each $i, $u in variables.$channelSettingsIcons {
+  @property --si-#{functions.str-replace($i, '-&', '')} {
     syntax: "<url>";
     inherits: true;
     initial-value: url(#{$u});
@@ -83,63 +88,71 @@
 
 // SettingsIcons Parity Fix
 :root {
-	/* SettingsIcons Parity */
-	@each $i, $u in $miscSettingsIcons {
-		@if str-index($i, '_') {
-				--si-#{str-replace($i, '_', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-		@if str-index($i, '-') {
-				--si-#{str-replace(str-replace($i, '-', ''), '&', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-	}
-	@each $i, $u in $userSettingsIcons {
-		@if str-index($i, '_') {
-				--si-#{str-replace($i, '_', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-		@if str-index($i, '-') {
-			--si-#{str-replace(str-replace($i, '-', ''), '&', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-	}
-	@each $i, $u in $serverSettingsIcons {
-		@if str-index($i, '_') {
-				--si-#{str-replace($i, '_', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-		@if str-index($i, '-') {
-			--si-#{str-replace(str-replace($i, '-', ''), '&', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-	}
-	@each $i, $u in $channelSettingsIcons {
-		@if str-index($i, '_') {
-				--si-#{str-replace($i, '_', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-		@if str-index($i, '-') {
-			--si-#{str-replace(str-replace($i, '-', ''), '&', '')}: var(--si-#{str-replace($i, '-&', '')});
-		}
-	}
+  /* SettingsIcons Parity */
+  @each $i, $u in variables.$miscSettingsIcons {
+    @if string.index($i, "_") {
+      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+    }
+    @if string.index($i, "-") {
+      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
+    }
+  }
+  @each $i, $u in variables.$userSettingsIcons {
+    @if string.index($i, "_") {
+      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+    }
+    @if string.index($i, "-") {
+      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
+    }
+  }
+  @each $i, $u in variables.$serverSettingsIcons {
+    @if string.index($i, "_") {
+      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+    }
+    @if string.index($i, "-") {
+      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
+    }
+  }
+  @each $i, $u in variables.$channelSettingsIcons {
+    @if string.index($i, "_") {
+      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+    }
+    @if string.index($i, "-") {
+      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
+    }
+  }
 }
 
 // COLORS
 :root {
   /* Exhaustive List of Colors: */
-  @each $i, $u in $userSettingsIcons {
-    @if in_map($presetColors, $i) {
-      --si-color-#{str-replace($i, '-&', '')}: #{map_get($presetColors, $i)};
+  @each $i, $u in variables.$userSettingsIcons {
+    @if functions.in_map(presets.$presetColors, $i) {
+      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(presets.$presetColors, $i)};
     } @else {
-      --si-color-#{str-replace($i, '-&', '')}: var(--si-color);
+      --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
   }
-  @each $i, $u in $serverSettingsIcons {
-    @if in_map($presetColors, $i) {
-      --si-color-#{str-replace($i, '-&', '')}: #{map_get($presetColors, $i)};
+  @each $i, $u in variables.$serverSettingsIcons {
+    @if functions.in_map(presets.$presetColors, $i) {
+      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(presets.$presetColors, $i)};
     } @else {
-      --si-color-#{str-replace($i, '-&', '')}: var(--si-color);
+      --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
   }
-  @each $i, $u in $channelSettingsIcons {
-    @if in_map($presetColors, $i) {
-      --si-color-#{str-replace($i, '-&', '')}: #{map_get($presetColors, $i)};
+  @each $i, $u in variables.$channelSettingsIcons {
+    @if functions.in_map(presets.$presetColors, $i) {
+      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(presets.$presetColors, $i)};
     } @else {
-      --si-color-#{str-replace($i, '-&', '')}: var(--si-color);
+      --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
   }
 }
