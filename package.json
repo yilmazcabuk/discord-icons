@@ -23,6 +23,7 @@
   "license": "ISC",
   "homepage": "https://gold-me.github.io/DiscordIcons/",
   "devDependencies": {
+    "prettier": "3.5.3",
     "rimraf": "^6.0.1",
     "sass": "^1.79.3"
   }

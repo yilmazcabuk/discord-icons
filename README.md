@@ -1,59 +1,64 @@
+# discord-icons
 
-[.theme.css]:  https://github.com/gold-me/DiscordIcons/raw/master/DiscordIcons.theme.css
-
-[css-length]:       https://developer.mozilla.org/en-US/docs/Web/CSS/length
-[css-color]:       https://developer.mozilla.org/en-US/docs/Web/CSS/color
+[.theme.css]: https://github.com/gold-me/DiscordIcons/raw/master/DiscordIcons.theme.css
+[css-length]: https://developer.mozilla.org/en-US/docs/Web/CSS/length
+[css-color]: https://developer.mozilla.org/en-US/docs/Web/CSS/color
 [css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/url_value
-
-[shield-vc-dl]:     https://img.shields.io/github/downloads/gold-me/DiscordIcons/DiscordIcons.theme.css?color=orange&label=Downloads&style=flat-square
+[shield-vc-dl]: https://img.shields.io/github/downloads/gold-me/DiscordIcons/DiscordIcons.theme.css?color=orange&label=Downloads&style=flat-square
 [shield-repo-size]: https://img.shields.io/github/repo-size/gold-me/DiscordIcons?label=Repository&style=flat-square%20%22Total%20size%22 "Total size"
+[github]: https://github.com/gold-me/DiscordIcons/raw/master/DiscordIcons
+[Vencord]: https://github.com/Vendicated/Vencord
+[release-vc-gh]: https://github.com/gold-me/DiscordIcons/releases/latest/download/DiscordIcons.theme.css "Get latest release"
 
-[github]:  https://github.com/gold-me/DiscordIcons/raw/master/DiscordIcons
-[Vencord]:  https://github.com/Vendicated/Vencord
 
-[release-vc-gh]:    https://github.com/gold-me/DiscordIcons/releases/latest/download/DiscordIcons.theme.css "Get latest release"
-# DiscordIcons
 [![Vencord GitHub downloads][shield-vc-dl]][release-vc-gh]
 [![Total repository size][shield-repo-size]][github]
 
 A lightweight, highly customizable theme that adds more icons to your settings.
 
 ## Installation
+
 <details open><summary>Click to expand</summary>
 
 ⚠️ This theme is designed for use with [Vencord][Vencord]; other client mods are not supported.
 
 Enable the `ThemeAttributes` plugin in `Settings` > `Vencord` > `Plugins`.
+
 ### Local
+
 1. Download `DiscordIcons.theme.css`:
-    - [GitHub][release-vc-gh]
+   - [GitHub][release-vc-gh]
 2. Place the file in the themes folder:
-    - `Settings` > `Vencord` > `Themes` > `Local Themes` > `Open Themes Folder`
+   - `Settings` > `Vencord` > `Themes` > `Local Themes` > `Open Themes Folder`
 3. Click `Load missing Themes` and toggle on the theme card.
+
 ### Online
+
 1. Paste the link in `Settings` > `Vencord` > `Themes` > `Online Themes`:
-    - `https://gold-me.github.io/DiscordIcons/main.css`
+   `https://gold-me.github.io/DiscordIcons/main.css`
+
 </details>
 
 ## Customisation
 
-| Variable name     | Description               | Value                | Default value |
-| ----------------- | ------------------------- | ------------------------- | ------------- |
-| `--si-size`     | Icon size                 | \<[length][css-length]\> | `24px`        |
-| `--si-height`   | Height of sidebar boxes   | \<[length][css-length]\> | `32px`        |
-| `--si-animations`   | Toggles sidebar animations | \<true \| false\> | `true`        |
-| `--si-expand`   | Toggles expand animations | \<true \| false\> | `false`        |
-| `--si-color`   | Color of icons when hovered/selected | \<[color][css-color]\> | `currentColor`        |
-| `--si-permacolor`   | Icons always show their set color | \<true \| false\> | `false`        |
-| `--si-*`   |Icon Variable. Used for setting it's url | \<[url][css-url]\> | `*`        |
-| `--si-color-*`   |Icon Variable. Used for setting it's color | \<[color][css-color]\> | `*`        |
+| Variable name     | Description                                | Value                    | Default value  |
+| ----------------- | ------------------------------------------ | ------------------------ | -------------- |
+| `--si-size`       | Icon size                                  | \<[length][css-length]\> | `24px`         |
+| `--si-height`     | Height of sidebar boxes                    | \<[length][css-length]\> | `32px`         |
+| `--si-animations` | Toggles sidebar animations                 | \<true \| false\>        | `true`         |
+| `--si-expand`     | Toggles expand animations                  | \<true \| false\>        | `false`        |
+| `--si-color`      | Color of icons when hovered/selected       | \<[color][css-color]\>   | `currentColor` |
+| `--si-permacolor` | Icons always show their set color          | \<true \| false\>        | `false`        |
+| `--si-*`          | Icon Variable. Used for setting it's url   | \<[url][css-url]\>       | `*`            |
+| `--si-color-*`    | Icon Variable. Used for setting it's color | \<[color][css-color]\>   | `*`            |
 
 ## Extended Customization
+
 Below are exhaustive lists of all existing variables for all icons and their respective colors.
 
 <details><summary>Icons</summary>
 
-~~~ css
+```css
 --si-my-account: url("https://raw.githubusercontent.com/gold-me/DiscordIcons/master/Icons/SVG/Manage_Accounts.svg");
 --si-profile-customization: url("https://raw.githubusercontent.com/gold-me/DiscordIcons/master/Icons/SVG/Style.svg");
 --si-privacy-safety: url("https://raw.githubusercontent.com/gold-me/DiscordIcons/master/Icons/SVG/Security.svg");
@@ -132,12 +137,13 @@ Below are exhaustive lists of all existing variables for all icons and their res
 --si-instant_invites: url("https://raw.githubusercontent.com/gold-me/DiscordIcons/master/Icons/SVG/Send.svg");
 --si-delete: url("https://raw.githubusercontent.com/gold-me/DiscordIcons/master/Icons/SVG/Delete.svg");
 --si-permissions: url("https://raw.githubusercontent.com/gold-me/DiscordIcons/master/Icons/SVG/Permissions.svg");
-~~~
+```
+
 </details>
 
 <details><summary>Icon Colors</summary>
 
-~~~ css
+```css
 --si-color-my-account: var(--si-color);
 --si-color-profile-customization: var(--si-color);
 --si-color-privacy-safety: var(--si-color);
@@ -216,22 +222,20 @@ Below are exhaustive lists of all existing variables for all icons and their res
 --si-color-instant_invites: var(--si-color);
 --si-color-delete: var(--si-color);
 --si-color-permissions: var(--si-color);
-~~~
+```
+
 </details>
 
-
 ## Credits
-[GoogleFonts]:               https://github.com/google/fonts
-[GoogleFonts-author]:        https://github.com/google
 
-[ionicons]:         https://github.com/ionic-team/ionicons
-[ionicons-author]:  https://github.com/ionic-team
-
+[GoogleFonts]: https://github.com/google/fonts
+[GoogleFonts-author]: https://github.com/google
+[ionicons]: https://github.com/ionic-team/ionicons
+[ionicons-author]: https://github.com/ionic-team
 [twemoji]: https://github.com/twitter/twemoji
 [twemoji-author]: https://github.com/twitter
-
-[DiscordSelectors]:    https://github.com/Zerthox/DiscordSelectors/tree/master
-[DiscordSelectors-author]:    https://github.com/Zerthox
+[DiscordSelectors]: https://github.com/Zerthox/DiscordSelectors/tree/master
+[DiscordSelectors-author]: https://github.com/Zerthox
 
 - [Google Fonts][GoogleFonts] by [Google][GoogleFonts-author] - Apache License, Version 2.0
 - [Ionicons][ionicons] by [Ionic][ionicons-author] - MIT License

@@ -1,66 +1,69 @@
 /* SETTINGS SIDEBAR */
 %settingsSidebar {
-    %tabBarItem {
-        padding: calc((var(--si-height) - var(--si-size)) / 2) 4px !important;
-	    line-height: var(--si-size);
+  %tabBarItem {
+    padding: calc((var(--si-height) - var(--si-size)) / 2) 4px !important;
+    line-height: var(--si-size);
 
-        // ICON ANIMATIONS
-        @container root style(--si-animations: true) {
-            border-radius: 4px 0px 0px 4px;
-		    transform: translateZ(0);
-		    transition: 220ms;
+    // ICON ANIMATIONS
+    @container root style(--si-animations: true) {
+      border-radius: 4px 0px 0px 4px;
+      transform: translateZ(0);
+      transition: 220ms;
 
-            &:hover,
-            &%tabBarItemSelected {
-                transform: translateX(8px);
-		        transition: 160ms;
-            }
-        }
-
-        // ICON PERMACOLOR
-        @container root style(--si-permacolor: true) {
-            &:before {
-                background-color: var(--si-color);
-            }
-        }
-
-        // ICON EXPAND
-        @container root style(--si-expand: true) {
-            &:hover,
-            &%tabBarItemSelected {
-                min-width: calc(var(--custom-standard-sidebar-view-sidebar-content-width) + (var(--si-size) * (1 + (1 / 3))));
-                margin-left: calc(-1 * var(--si-size) * (1 + (1 / 3)));
-            }
-        }
-
-        // REMOVE EXISTING ICONS
-        :is(svg, img) {
-            display: none !important;
-        }
-
-        // BACKGROUND FIXES
-        %settingsSidebarNitroSelected {
-            background-color: unset !important;
-        }
-        &%tabBarItemSelected {
-            &%settingsSidebarServerBoost {
-                background-color: var(--background-modifier-selected) !important;
-            }
-        }
-
-        //RED LOGOUT/DELETE
-        &:is([data-tab-id="DELETE"],[data-tab-id="logout"]) {
-            color: var(--info-danger-foreground) !important;
-            &:hover {
-                background-color: var(--info-danger-background) !important;
-            }
-            
-            &::before {
-                opacity: 0.6 !important;
-            }
-            &:hover::before {
-                opacity: 1 !important;
-            }
-        }
+      &:hover,
+      &%tabBarItemSelected {
+        transform: translateX(8px);
+        transition: 160ms;
+      }
     }
+
+    // ICON PERMACOLOR
+    @container root style(--si-permacolor: true) {
+      &:before {
+        background-color: var(--si-color);
+      }
+    }
+
+    // ICON EXPAND
+    @container root style(--si-expand: true) {
+      &:hover,
+      &%tabBarItemSelected {
+        min-width: calc(
+          var(--custom-standard-sidebar-view-sidebar-content-width) +
+            (var(--si-size) * (1 + (1 / 3)))
+        );
+        margin-left: calc(-1 * var(--si-size) * (1 + (1 / 3)));
+      }
+    }
+
+    // REMOVE EXISTING ICONS
+    :is(svg, img) {
+      display: none !important;
+    }
+
+    // BACKGROUND FIXES
+    %settingsSidebarNitroSelected {
+      background-color: unset !important;
+    }
+    &%tabBarItemSelected {
+      &%settingsSidebarServerBoost {
+        background-color: var(--background-modifier-selected) !important;
+      }
+    }
+
+    //RED LOGOUT/DELETE
+    &:is([data-tab-id="DELETE"], [data-tab-id="logout"]) {
+      color: var(--info-danger-foreground) !important;
+      &:hover {
+        background-color: var(--info-danger-background) !important;
+      }
+
+      &::before {
+        opacity: 0.6 !important;
+      }
+      &:hover::before {
+        opacity: 1 !important;
+      }
+    }
+  }
 }

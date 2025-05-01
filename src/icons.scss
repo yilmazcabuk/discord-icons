@@ -1,7 +1,7 @@
 @use "functions";
 @use "variables";
 
-@use 'sass:map';
+@use "sass:map";
 /* SETTINGS SIDEBAR ICONS */
 
 %settingsSidebar {
@@ -40,30 +40,36 @@
 
   // USER SETTINGS
   @each $i, $u in variables.$userSettingsIcons {
-    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", '-', ' ')} i] {
-      --si-color: var(--si-color-#{functions.str-replace($i, '-&', '')});
+    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", "-", " ")} i] {
+      --si-color: var(--si-color-#{functions.str-replace($i, "-&", "")});
       &:before {
-        mask: var(--si-#{functions.str-replace($i, '-&', '')}) center/contain no-repeat;
+        mask: var(--si-#{functions.str-replace($i, "-&", "")})
+          center/contain
+          no-repeat;
       }
     }
   }
 
   // SERVER SETTINGS
   @each $i, $u in variables.$serverSettingsIcons {
-    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", '-', ' ')} i] {
-      --si-color: var(--si-color-#{functions.str-replace($i, '-&', '')});
+    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", "-", " ")} i] {
+      --si-color: var(--si-color-#{functions.str-replace($i, "-&", "")});
       &:before {
-        mask: var(--si-#{functions.str-replace($i, '-&', '')}) center/contain no-repeat;
+        mask: var(--si-#{functions.str-replace($i, "-&", "")})
+          center/contain
+          no-repeat;
       }
     }
   }
 
   // CHANNEL SETTINGS
   @each $i, $u in variables.$channelSettingsIcons {
-    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", '-', ' ')} i] {
-      --si-color: var(--si-color-#{functions.str-replace($i, '-&', '')});
+    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", "-", " ")} i] {
+      --si-color: var(--si-color-#{functions.str-replace($i, "-&", "")});
       &:before {
-        mask: var(--si-#{functions.str-replace($i, '-&', '')}) center/contain no-repeat;
+        mask: var(--si-#{functions.str-replace($i, "-&", "")})
+          center/contain
+          no-repeat;
       }
     }
   }

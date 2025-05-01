@@ -91,7 +91,9 @@
   /* SettingsIcons Parity */
   @each $i, $u in variables.$miscSettingsIcons {
     @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+      --si-#{functions.str-replace($i, '_', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
     }
     @if string.index($i, "-") {
       --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
@@ -101,7 +103,9 @@
   }
   @each $i, $u in variables.$userSettingsIcons {
     @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+      --si-#{functions.str-replace($i, '_', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
     }
     @if string.index($i, "-") {
       --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
@@ -111,7 +115,9 @@
   }
   @each $i, $u in variables.$serverSettingsIcons {
     @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+      --si-#{functions.str-replace($i, '_', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
     }
     @if string.index($i, "-") {
       --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
@@ -121,7 +127,9 @@
   }
   @each $i, $u in variables.$channelSettingsIcons {
     @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(--si-#{functions.str-replace($i, "-&", "")});
+      --si-#{functions.str-replace($i, '_', '')}: var(
+        --si-#{functions.str-replace($i, "-&", "")}
+      );
     }
     @if string.index($i, "-") {
       --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
@@ -136,21 +144,30 @@
   /* Exhaustive List of Colors: */
   @each $i, $u in variables.$userSettingsIcons {
     @if functions.in_map(presets.$presetColors, $i) {
-      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(presets.$presetColors, $i)};
+      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(
+          presets.$presetColors,
+          $i
+        )};
     } @else {
       --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
   }
   @each $i, $u in variables.$serverSettingsIcons {
     @if functions.in_map(presets.$presetColors, $i) {
-      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(presets.$presetColors, $i)};
+      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(
+          presets.$presetColors,
+          $i
+        )};
     } @else {
       --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
   }
   @each $i, $u in variables.$channelSettingsIcons {
     @if functions.in_map(presets.$presetColors, $i) {
-      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(presets.$presetColors, $i)};
+      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(
+          presets.$presetColors,
+          $i
+        )};
     } @else {
       --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
