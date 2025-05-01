@@ -2,58 +2,38 @@
 @import "src/variables.scss";
 @import "src/functions.scss";
 @import "src/presets.scss";
+
 /**
- * @name DiscordIcons
- * @author gold_me
+ * @name discord-icons
+ * @author yilmazcabuk
  * @description A lightweight theme that adds more icons to your settings.
- * @source https://github.com/gold-me/DiscordIcons
+ * @source https://github.com/yilmazcabuk/discord-icons
  * @version v#{version.$v}
  */
-
-@import url("https://gold-me.github.io/DiscordIcons/main.css");
+ 
+@import url("https://yilmazcabuk.github.io/discord-icons/main.css");
 
 :root {
-  --si-size: 24px; /* <length> (Default: 24px) Set the size of the icons. */
-  --si-height: 32px; /* <length> (Default: 32px) Set the height for sidebar items. If the --si-size is greater than this value, --si-size takes priority. */
-  --si-animations: true; /* <true/false> (Default: true) Makes the sidebars have hover animations. */
-  --si-expand: false; /* <true/false> (Default: false) Expands the sidebar when hovering over items, mainly for being able to see any words that got cut off from icons. May break some themes. */
-  --si-presets: true; /* <true/false> (Default: false) Some icons have have been setup to change color on their selection/hover by default, set this to true to disable that functionality. */
-  --si-permacolor: false; /* <true/false> (Default: false) Makes icons always display their custom color. */
-  --si-color: currentColor; /* <color> (Default: currentColor) Set's the color for ALL icons. Can be fine tuned with selectors. */
+  --si-size: 24px;
+  --si-height: 32px;
+  --si-animations: true;
+  --si-expand: false;
+  --si-presets: true;
+  --si-permacolor: false;
+  --si-color: currentColor;
   --si-opacity: 0.4;
   --si-opacity-hover: 0.8;
 
-  /* Exhaustive List of Icons: */
-  @each $i, $u in $userSettingsIcons {
-    --si-#{str-replace($i, '-&', '')}: url("#{$u}");
-  }
-  @each $i, $u in $serverSettingsIcons {
-    --si-#{str-replace($i, '-&', '')}: url("#{$u}");
-  }
-  @each $i, $u in $channelSettingsIcons {
-    --si-#{str-replace($i, '-&', '')}: url("#{$u}");
+  // Helper mixin to generate icon URLs and colors
+  @mixin generate-icon-vars($iconMap) {
+    @each $key, $url in $iconMap {
+      $clean-key: str-replace($key, '-&', '');
+      --si-#{$clean-key}: url("#{$url}");
+      --si-color-#{$clean-key}: if(in_map($presetColors, $key), map_get($presetColors, $key), var(--si-color));
+    }
   }
 
-  /* Exhaustive List of Colors: */
-  @each $i, $u in $userSettingsIcons {
-    @if in_map($presetColors, $i) {
-      --si-color-#{str-replace($i, '-&', '')}: #{map_get($presetColors, $i)};
-    } @else {
-      --si-color-#{str-replace($i, '-&', '')}: var(--si-color);
-    }
-  }
-  @each $i, $u in $serverSettingsIcons {
-    @if in_map($presetColors, $i) {
-      --si-color-#{str-replace($i, '-&', '')}: #{map_get($presetColors, $i)};
-    } @else {
-      --si-color-#{str-replace($i, '-&', '')}: var(--si-color);
-    }
-  }
-  @each $i, $u in $channelSettingsIcons {
-    @if in_map($presetColors, $i) {
-      --si-color-#{str-replace($i, '-&', '')}: #{map_get($presetColors, $i)};
-    } @else {
-      --si-color-#{str-replace($i, '-&', '')}: var(--si-color);
-    }
-  }
+  @include generate-icon-vars($userSettingsIcons);
+  @include generate-icon-vars($serverSettingsIcons);
+  @include generate-icon-vars($channelSettingsIcons);
 }

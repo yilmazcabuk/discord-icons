@@ -8,168 +8,80 @@
   container: root;
 }
 
-@property --si-size {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 24px;
-}
-@property --si-height {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 32px;
-}
-@property --si-gap {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 10px;
-}
-@property --si-animations {
-  syntax: "true | false";
-  inherits: true;
-  initial-value: true;
-}
-@property --si-expand {
-  syntax: "true | false";
-  inherits: true;
-  initial-value: false;
-}
-@property --si-permacolor {
-  syntax: "true | false";
-  inherits: true;
-  initial-value: false;
-}
-@property --si-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: currentColor;
-}
-@property --si-opacity {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0.4;
-}
-@property --si-opacity-hover {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0.8;
-}
-
-@each $i, $u in variables.$miscSettingsIcons {
-  @property --si-#{functions.str-replace($i, '-&-', '')} {
-    syntax: "<url>";
+// Define CSS custom properties with common properties
+@mixin define-custom-property($property-name, $syntax-type, $default-value) {
+  @property --si-#{$property-name} {
+    syntax: $syntax-type;
     inherits: true;
-    initial-value: url(#{$u});
+    initial-value: $default-value;
   }
 }
 
-@each $i, $u in variables.$userSettingsIcons {
-  @property --si-#{functions.str-replace($i, '-&', '')} {
-    syntax: "<url>";
-    inherits: true;
-    initial-value: url(#{$u});
+// Base properties
+@include define-custom-property(size, "<length>", 24px);
+@include define-custom-property(height, "<length>", 32px);
+@include define-custom-property(gap, "<length>", 10px);
+@include define-custom-property(animations, "true | false", true);
+@include define-custom-property(expand, "true | false", false);
+@include define-custom-property(permanentcolor, "true | false", false);
+@include define-custom-property(color, "<color>", currentColor);
+@include define-custom-property(opacity, "<number>", 0.4);
+@include define-custom-property(opacity-hover, "<number>", 0.8);
+
+// Generate properties from icon maps
+@mixin generate-icon-properties($icon-map) {
+  @each $icon-name, $icon-url in $icon-map {
+    @include define-custom-property(
+      #{functions.str-replace($icon-name, "-&-", "")},
+      "<url>",
+      url(#{$icon-url})
+    );
   }
 }
 
-@each $i, $u in variables.$serverSettingsIcons {
-  @property --si-#{functions.str-replace($i, '-&', '')} {
-    syntax: "<url>";
-    inherits: true;
-    initial-value: url(#{$u});
-  }
-}
-
-@each $i, $u in variables.$channelSettingsIcons {
-  @property --si-#{functions.str-replace($i, '-&', '')} {
-    syntax: "<url>";
-    inherits: true;
-    initial-value: url(#{$u});
-  }
-}
+@include generate-icon-properties(variables.$miscSettingsIcons);
+@include generate-icon-properties(variables.$userSettingsIcons);
+@include generate-icon-properties(variables.$serverSettingsIcons);
+@include generate-icon-properties(variables.$channelSettingsIcons);
 
 // SettingsIcons Parity Fix
 :root {
-  /* SettingsIcons Parity */
-  @each $i, $u in variables.$miscSettingsIcons {
-    @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-    @if string.index($i, "-") {
-      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-  }
-  @each $i, $u in variables.$userSettingsIcons {
-    @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-    @if string.index($i, "-") {
-      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
+  @mixin generate-parity-variables($icon-map) {
+    @each $icon-name, $icon-url in $icon-map {
+      $cleaned-icon-name: functions.str-replace($icon-name, "-&", "");
+      @if string.index($icon-name, "_") {
+        --si-#{functions.str-replace($icon-name, '_', '')}: var(
+          --si-#{$cleaned-icon-name}
+        );
+      }
+      @if string.index($icon-name, "-") {
+        --si-#{functions.str-replace(functions.str-replace($icon-name, '-', ''), '&', '')}: var(
+          --si-#{$cleaned-icon-name}
+        );
+      }
     }
   }
-  @each $i, $u in variables.$serverSettingsIcons {
-    @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-    @if string.index($i, "-") {
-      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-  }
-  @each $i, $u in variables.$channelSettingsIcons {
-    @if string.index($i, "_") {
-      --si-#{functions.str-replace($i, '_', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-    @if string.index($i, "-") {
-      --si-#{functions.str-replace(functions.str-replace($i, '-', ''), '&', '')}: var(
-        --si-#{functions.str-replace($i, "-&", "")}
-      );
-    }
-  }
+
+  @include generate-parity-variables(variables.$miscSettingsIcons);
+  @include generate-parity-variables(variables.$userSettingsIcons);
+  @include generate-parity-variables(variables.$serverSettingsIcons);
+  @include generate-parity-variables(variables.$channelSettingsIcons);
 }
 
-// COLORS
+// Generate color variables
 :root {
-  /* Exhaustive List of Colors: */
-  @each $i, $u in variables.$userSettingsIcons {
-    @if functions.in_map(presets.$presetColors, $i) {
-      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(
-          presets.$presetColors,
-          $i
+  @mixin generate-color-variables($icon-map) {
+    @each $icon-name, $icon-url in $icon-map {
+      $cleaned-icon-name: functions.str-replace($icon-name, "-&", "");
+      --si-color-#{$cleaned-icon-name}: #{if(
+          functions.in_map(presets.$presetColors, $icon-name),
+          functions.map_get(presets.$presetColors, $icon-name),
+          var(--si-color)
         )};
-    } @else {
-      --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
     }
   }
-  @each $i, $u in variables.$serverSettingsIcons {
-    @if functions.in_map(presets.$presetColors, $i) {
-      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(
-          presets.$presetColors,
-          $i
-        )};
-    } @else {
-      --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
-    }
-  }
-  @each $i, $u in variables.$channelSettingsIcons {
-    @if functions.in_map(presets.$presetColors, $i) {
-      --si-color-#{functions.str-replace($i, '-&', '')}: #{functions.map_get(
-          presets.$presetColors,
-          $i
-        )};
-    } @else {
-      --si-color-#{functions.str-replace($i, '-&', '')}: var(--si-color);
-    }
-  }
+
+  @include generate-color-variables(variables.$userSettingsIcons);
+  @include generate-color-variables(variables.$serverSettingsIcons);
+  @include generate-color-variables(variables.$channelSettingsIcons);
 }

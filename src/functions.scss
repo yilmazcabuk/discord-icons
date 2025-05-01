@@ -1,40 +1,35 @@
 @use "sass:string";
 @use "sass:map";
-/// Replace `$search` with `$replace` in `$string`
+
+/// str-replace — Replace all instances of `$search` with `$replace` in `$string`
 /// @author Hugo Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
+/// @param {String} $string - The input string
+/// @param {String} $search - The substring to find
+/// @param {String} $replace - The string to replace with (default: "")
+/// @return {String} The modified string
 @function str-replace($string, $search, $replace: "") {
   $index: string.index($string, $search);
 
-  @if $index {
-    @return string.slice($string, 1, $index - 1) + $replace +
-      str-replace(
-        string.slice($string, $index + string.length($search)),
-        $search,
-        $replace
-      );
-  }
-
-  @return $string;
+  @return if(
+    $index,
+    string.slice($string, 1, $index - 1) + $replace +
+      str-replace(string.slice($string, $index + string.length($search)), $search, $replace),
+    $string
+  );
 }
 
-/// in_map — Checks if a $key exists in a map
-/// @param {Map} $map
-/// @param {*} $key
-/// @return {TRUE|FALSE} Boolen TRUE if $key is found in the $map, FALSE otherwise.
-@function in_map($map, $key) {
-  @return (null != map.get($map, $key));
+/// in-map — Check if a `$key` exists in a `$map`
+/// @param {Map} $map - The map to search in
+/// @param {*} $key - The key to look for
+/// @return {Boolean} `true` if found, `false` otherwise
+@function in-map($map, $key) {
+  @return map.has-key($map, $key);
 }
 
-/// map_get — Get value from map
-/// @param {Map} $map
-/// @param {*} $key
-/// @return {*} Returns the value from the key, returns null otherwise.
-@function map_get($map, $key) {
-  $r: #{map.get($map, $key)};
-  // @debug $r;
-  @return #{$r};
+/// map-get — Safely get a value from a map
+/// @param {Map} $map - The map to extract from
+/// @param {*} $key - The key to fetch
+/// @return {*} The associated value or `null` if not found
+@function map-get($map, $key) {
+  @return map.get($map, $key);
 }

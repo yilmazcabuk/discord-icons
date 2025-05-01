@@ -1,7 +1,7 @@
 @use "functions";
 @use "variables";
-
 @use "sass:map";
+
 /* SETTINGS SIDEBAR ICONS */
 
 %settingsSidebar {
@@ -38,39 +38,24 @@
     }
   }
 
-  // USER SETTINGS
-  @each $i, $u in variables.$userSettingsIcons {
-    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", "-", " ")} i] {
-      --si-color: var(--si-color-#{functions.str-replace($i, "-&", "")});
-      &:before {
-        mask: var(--si-#{functions.str-replace($i, "-&", "")})
-          center/contain
-          no-repeat;
+  // 🧩 Mixin for repeated icon logic
+  @mixin sidebar-icon($iconMap) {
+    @each $key, $val in $iconMap {
+      $tab-id: functions.str-replace("'" + $key + "'", "-", " ");
+      $clean-key: functions.str-replace($key, "-&", "");
+
+      %tabBarItem[data-tab-id=#{$tab-id} i] {
+        --si-color: var(--si-color-#{$clean-key});
+
+        &:before {
+          mask: var(--si-#{$clean-key}) center/contain no-repeat;
+        }
       }
     }
   }
 
-  // SERVER SETTINGS
-  @each $i, $u in variables.$serverSettingsIcons {
-    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", "-", " ")} i] {
-      --si-color: var(--si-color-#{functions.str-replace($i, "-&", "")});
-      &:before {
-        mask: var(--si-#{functions.str-replace($i, "-&", "")})
-          center/contain
-          no-repeat;
-      }
-    }
-  }
-
-  // CHANNEL SETTINGS
-  @each $i, $u in variables.$channelSettingsIcons {
-    %tabBarItem[data-tab-id=#{functions.str-replace("\'" + $i + "\'", "-", " ")} i] {
-      --si-color: var(--si-color-#{functions.str-replace($i, "-&", "")});
-      &:before {
-        mask: var(--si-#{functions.str-replace($i, "-&", "")})
-          center/contain
-          no-repeat;
-      }
-    }
-  }
+  // 🎯 Apply mixin to each icon map
+  @include sidebar-icon(variables.$userSettingsIcons);
+  @include sidebar-icon(variables.$serverSettingsIcons);
+  @include sidebar-icon(variables.$channelSettingsIcons);
 }
